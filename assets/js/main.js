@@ -1,8 +1,8 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 
-const maxRecords = 151
-const limit = 10
+const maxRecords = 151;
+const limit = 10;
 let offset = 0;
 
 function convertPokemonToLi(pokemon) {
@@ -18,6 +18,9 @@ function convertPokemonToLi(pokemon) {
 
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
+            </div>
+            <div class="details-button-container">
+                <button class="details-button" data-pokemon-id="${pokemon.number}">Detalhes</button>
             </div>
         </li>
     `
@@ -44,4 +47,5 @@ loadMoreButton.addEventListener('click', () => {
     } else {
         loadPokemonItens(offset, limit)
     }
+    detailsContainer.style.display = 'none';
 })
